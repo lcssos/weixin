@@ -15,16 +15,23 @@ public class SignController {
 
     Logger logger = LoggerFactory.getLogger(SignController.class);
 
-    @RequestMapping(value = "/sign",method = RequestMethod.GET)
-    public String sign(@RequestParam("timestamp") String timestamp,
-                       @RequestParam("nonce") String nonce,
-                       @RequestParam("token")String token,
-                       @RequestParam("echostr")String echostr){
+    @RequestMapping(value = "/checkSignature",method = RequestMethod.GET)
+    public String checkSignature(@RequestParam(value = "timestamp",required = false) String timestamp,
+                       @RequestParam(value = "nonce",required = false) String nonce,
+                       @RequestParam(value = "echostr",required = false)String echostr){
+
+        String token = "Martinlcs1";
 
         logger.info(timestamp);
         logger.info(nonce);
         logger.info(token);
         logger.info(echostr);
+
+
+        //AppID(应用ID)
+        //wx1e9c2e64cc5dbec0
+        //AppSecret(应用密钥)
+        //400e3f86359c49c7a5a3161362cdcf3f
 
 
         return echostr;
