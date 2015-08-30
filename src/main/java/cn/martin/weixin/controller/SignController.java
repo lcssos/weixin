@@ -61,7 +61,8 @@ public class SignController {
 
 
     /**
-     * 接收普通消息
+     * 接收普通消息、接收事件推送
+     * 返回内容为被动回复消息
       * @param timestamp
      * @param nonce
      * @param echostr
