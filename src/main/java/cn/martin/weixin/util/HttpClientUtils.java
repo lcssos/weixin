@@ -134,7 +134,8 @@ public class HttpClientUtils {
             Map<String, String> headers, Integer connTimeout,  
             Integer readTimeout) throws ConnectTimeoutException,  
             SocketTimeoutException, Exception {  
-  
+
+
         HttpClient client = null;  
   
         HttpPost post = new HttpPost(url);  
@@ -276,15 +277,25 @@ public class HttpClientUtils {
     }  
   
     private static CloseableHttpClient createSSLInsecureClient()  
-            throws GeneralSecurityException {  
+            throws GeneralSecurityException {
+
+        SSLContext sslContext = org.apache.http.ssl.SSLContextBuilder.create().loadTrustMaterial(null, new TrustStrategy() {
+            @Override
+            public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                return true;
+            }
+        }).build();
+
+
         try {  
-            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(  
-                    null, new TrustStrategy() {  
-                        public boolean isTrusted(X509Certificate[] chain,  
-                                String authType) throws CertificateException {  
-                            return true;  
-                        }  
-                    }).build();  
+//            SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(
+//                    null, new TrustStrategy() {
+//                        public boolean isTrusted(X509Certificate[] chain,
+//                                String authType) throws CertificateException {
+//                            return true;
+//                        }
+//                    }).build();
+
             SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(  
                     sslContext, new X509HostnameVerifier() {  
   
@@ -310,7 +321,7 @@ public class HttpClientUtils {
   
                     });  
             return HttpClients.custom().setSSLSocketFactory(sslsf).build();  
-        } catch (GeneralSecurityException e) {  
+        } catch (Exception e) {
             throw e;  
         }  
     }  
