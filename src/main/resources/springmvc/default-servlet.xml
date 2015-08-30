@@ -37,19 +37,6 @@
 		</property>
 	</bean>
 
-	<!-- 初始化配置文件 -->
-	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-		<property name="locations">
-			<list>
-				<value>classpath:application.properties</value>
-			</list>
-		</property>
-		<property name="fileEncoding" value="utf-8"/>
-	</bean>
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-		<property name="properties" ref="configProperties" />
-	</bean>
-
 
 	<!-- 对模型视图名称的解析，在请求时模型视图名称添加前后缀 -->
 	<bean id="viewResolver"

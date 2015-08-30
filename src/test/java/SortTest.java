@@ -14,7 +14,8 @@ import java.util.List;
  */
 
 @ContextConfiguration(locations = {
-        "classpath:springmvc/*.xml"
+        "classpath:springmvc/*.xml",
+        "classpath:spring/*.xml"
 })
 public class SortTest extends AbstractJUnit4SpringContextTests {
 

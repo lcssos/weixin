@@ -33,7 +33,7 @@
 
 
     <context:component-scan
-            base-package="cn.martin.springmvc.**.service,cn.martin.springmvc.**.dao,cn.martin.springmvc.**.quartz,cn.martin.springmvc.base.init"></context:component-scan>
+            base-package="cn.martin.**.service,cn.martin.**.dao,cn.martin.**.quartz,cn.martin.**.util"></context:component-scan>
 
 
 

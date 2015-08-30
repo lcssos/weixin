@@ -42,11 +42,11 @@
       <version>${org.springframework.version}</version>
     </dependency>
 
-    <!--<dependency>-->
-      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-      <!--<artifactId>jackson-databind</artifactId>-->
-      <!--<version>2.6.1</version>-->
-    <!--</dependency>-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.6.1</version>
+    </dependency>
 
     <!-- 日志系统 -->
     <dependency>
@@ -71,6 +71,12 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
       <version>4.5</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-logging</artifactId>
+          <groupId>commons-logging</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -82,6 +88,13 @@
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+
 
     <!-- 单元测试 -->
     <dependency>
@@ -98,10 +111,11 @@
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
+      <artifactId>servlet-api</artifactId>
+      <version>2.5</version>
       <scope>test</scope>
     </dependency>
+
 
 
   </dependencies>

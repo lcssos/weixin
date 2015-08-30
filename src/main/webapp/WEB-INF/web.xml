@@ -26,6 +26,18 @@
     <!-- 强制转码 防止乱码出现 end -->
 
 
+    <!-- spring -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- spring配置文件路径 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:/spring/*.xml
+        </param-value>
+    </context-param>
+
     <!-- springMVC -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
