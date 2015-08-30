@@ -14,7 +14,7 @@ public class WeiXinIPTest extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void test() throws Exception {
-        String result = HttpClientUtils.get("https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=lIXkFIb6hl5VgYnXGBLA3y1V0mjbI2s5y_GAwbYmdm6BIpsSxDITKJq_pw8V_CSFEbo5dklIvjdWVnjCqb4sSgYLPXmX3ZjFUia6mExNgRc",null);
+        String result = HttpClientUtils.get("https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=URzgpxdTLUFBUIcfiaY5os6ZJPpcT3xpDjeNscC96QSgEYlEBBKZPKwkv2i6lY3GACfV8G2Wm8ogzXGzf8mKjq00LW2uDadj_3CZX7ksP3Q",null);
 
         System.out.print(result);
     }

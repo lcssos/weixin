@@ -14,7 +14,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.servlet.ServletContext;
 
 /**
  * Created by 昌胜 on 2015-02-10.

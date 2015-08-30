@@ -22,6 +22,8 @@ public class AccessTokenTest extends AbstractJUnit4SpringContextTests {
 
     @Test
     public void test() throws Exception {
+        System.out.println(appid);
+
         String result = HttpClientUtils.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="+appid+"&secret="+secret,null);
 
         System.out.println(result);

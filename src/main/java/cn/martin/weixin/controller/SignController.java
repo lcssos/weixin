@@ -24,6 +24,13 @@ public class SignController {
     @Value("#{configProperties['wx.token']}")
     private String token;
 
+    /**
+     * 服务器有效性认证
+     * @param timestamp
+     * @param nonce
+     * @param echostr
+     * @return
+     */
     @RequestMapping(value = "/checkSignature",method = RequestMethod.GET)
     public String checkSignature(@RequestParam(value = "timestamp",required = false) String timestamp,
                        @RequestParam(value = "nonce",required = false) String nonce,
@@ -38,14 +45,6 @@ public class SignController {
 
         String s = StringUtils.collectionToDelimitedString(list,"");
 
-
-
-
-
-
-
-
-
         logger.info(timestamp);
         logger.info(nonce);
         logger.info(token);
@@ -57,7 +56,23 @@ public class SignController {
         //AppSecret(应用密钥)
         //400e3f86359c49c7a5a3161362cdcf3f
 
-
         return echostr;
+    }
+
+
+    /**
+     * 接收普通消息
+      * @param timestamp
+     * @param nonce
+     * @param echostr
+     * @return
+     */
+    @RequestMapping(value = "/checkSignature",method = RequestMethod.POST)
+    public String receiveMs(@RequestParam(value = "timestamp",required = false) String timestamp,
+                            @RequestParam(value = "nonce",required = false) String nonce,
+                            @RequestParam(value = "echostr",required = false)String echostr){
+
+
+        return "";
     }
 }
